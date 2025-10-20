@@ -17,7 +17,8 @@ select
     metadata
 from {{ ref('int_identity') }}
 where
-    metadata:ats = 'Greenhouse'
+    srv_candidate_id is not null
+    and metadata:ats = 'Greenhouse'
 ;
 
 -- Example 3: Query with time filtering
