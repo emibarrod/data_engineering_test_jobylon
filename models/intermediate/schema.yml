@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: int_identity
+    description: Intermediate model for unifying candidate identities.
+    columns:
+      - name: unified_candidate_id
+        description: "A unique identifier for a candidate across all systems."
+        tests:
+          - unique
+          - not_null
+      - name: crm_candidate_id
+        description: "The candidate's ID from the CRM system."
+      - name: ats_candidate_id
+        description: "The candidate's ID from the ATS system."
+      - name: srv_candidate_id
+        description: "The candidate's ID from the SRV system."
+      - name: name
+        description: "The candidate's full name."
+      - name: email
+        description: "The candidate's email address."
+        tests:
+          - not_null
+          - unique
+      - name: phone_number
+        description: "The candidate's phone number."
+      - name: metadata
+        description: "A JSON object containing additional information about the candidate."
+      - name: first_seen
+        description: "The earliest timestamp when the candidate was seen across all systems."
+      - name: recruiter_names
+        description: "A list of recruiter names associated with the candidate."
+      - name: hiring_manager
+        description: "The name of the hiring manager associated with the candidate."
+      - name: department_name
+        description: "The name of the department associated with the candidate."

@@ -1,0 +1,51 @@
+version: 2
+
+sources:
+  - name: ats
+    description: "Data from the Applicant Tracking System (ATS)"
+    tables:
+      - name: ats_candidates
+        description: "Raw candidate data from the ATS."
+        columns:
+          - name: candidate_id
+            tests:
+              - unique
+              - not_null
+          - name: email_address
+            tests:
+              - not_null
+      - name: ats_jobs
+        description: "Raw job data from the ATS."
+        columns:
+          - name: job_id
+            tests:
+              - unique
+              - not_null
+
+  - name: crm
+    description: "Data from the Customer Relationship Management (CRM) system"
+    tables:
+      - name: crm_candidates
+        description: "Raw candidate data from the CRM."
+        columns:
+          - name: candidate_id
+            tests:
+              - unique
+              - not_null
+          - name: email
+            tests:
+              - not_null
+
+  - name: srv
+    description: "Data from the survey system"
+    tables:
+      - name: srv_applicants
+        description: "Raw applicant data from the survey system."
+        columns:
+          - name: candidate_id
+            tests:
+              - unique
+              - not_null
+          - name: email
+            tests:
+              - not_null

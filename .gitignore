@@ -1,0 +1,8 @@
+*/.DS_store
+target/
+dbt_packages/
+logs/
+profiles.yml
+jobylon.duckdb
+.user.yml
+seeds/*.csv

@@ -1,0 +1,84 @@
+version: 2
+
+models:
+  - name: stg_ats_candidates
+    description: Staging model for ATS candidates data.
+    columns:
+      - name: id
+        description: "The unique identifier for a candidate."
+        tests:
+          - unique
+          - not_null
+      - name: email
+        description: "The candidate's email address."
+        tests:
+          - not_null
+      - name: phone_number
+        description: "The candidate's phone number."
+      - name: first_seen
+        description: "The timestamp when the candidate was first seen."
+      - name: job_id
+        description: "The identifier of the job the candidate applied for."
+
+  - name: stg_ats_jobs
+    description: Staging model for ATS jobs data.
+    columns:
+      - name: job_id
+        description: "The unique identifier for a job."
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "The identifier of the customer associated with the job."
+      - name: hiring_manager
+        description: "The name of the hiring manager for the job."
+      - name: recruiters
+        description: "A list of recruiters associated with the job."
+      - name: department_name
+        description: "The name of the department the job belongs to."
+
+  - name: stg_crm_candidates
+    description: Staging model for CRM candidates data.
+    columns:
+      - name: id
+        description: "The unique identifier for a candidate."
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "The identifier of the customer associated with the candidate."
+      - name: email
+        description: "The candidate's email address."
+        tests:
+          - not_null
+      - name: phone_number
+        description: "The candidate's phone number."
+      - name: first_seen
+        description: "The timestamp when the candidate was first seen."
+      - name: recruiter
+        description: "The name of the recruiter associated with the candidate."
+      - name: hiring_manager
+        description: "The name of the hiring manager for the candidate."
+      - name: department_name
+        description: "The name of the department the candidate belongs to."
+
+  - name: stg_srv_applicants
+    description: Staging model for SRV applicants data.
+    columns:
+      - name: cid
+        description: "The unique identifier for an applicant."
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "The identifier of the customer associated with the applicant."
+      - name: email
+        description: "The applicant's email address."
+        tests:
+          - not_null
+      - name: first_seen
+        description: "The timestamp when the applicant was first seen."
+      - name: tags
+        description: "Tags associated with the applicant."
+      - name: ats
+        description: "The ATS the applicant came from."
