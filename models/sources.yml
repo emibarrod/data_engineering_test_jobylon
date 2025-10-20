@@ -37,10 +37,10 @@ sources:
               - not_null
 
   - name: srv
-    description: "Data from the survey system"
+    description: "Data from the SRV system"
     tables:
       - name: srv_applicants
-        description: "Raw applicant data from the survey system."
+        description: "Raw applicant data from the SRV system."
         columns:
           - name: candidate_id
             tests:
